@@ -1,0 +1,5 @@
+/home/ubuntu/produto-crud-app/src/main/java/com/example/produto/service/ProdutoService.java
+/home/ubuntu/produto-crud-app/src/main/java/com/example/produto/repository/ProdutoRepository.java
+/home/ubuntu/produto-crud-app/src/main/java/com/example/produto/ProdutoCrudApplication.java
+/home/ubuntu/produto-crud-app/src/main/java/com/example/produto/controller/ProdutoController.java
+/home/ubuntu/produto-crud-app/src/main/java/com/example/produto/entity/Produto.java

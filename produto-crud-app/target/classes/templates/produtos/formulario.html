@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${produto.id != null ? 'Editar Produto' : 'Cadastrar Novo Produto'}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="${produto.id != null ? 'Editar Produto: ' + produto.nome : 'Cadastrar Novo Produto'}"></h1>
+
+        <form th:method="${produto.id != null ? 'post' : 'post'}" 
+              th:action="${produto.id != null ? '/produtos/' + produto.id : '/produtos'}" 
+              th:object="${produto}">
+
+            <div th:if="${produto.id != null}" class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" th:value="${produto.id}" readonly class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" th:value="${produto.nome}" required class="form-control" placeholder="Digite o nome do produto">
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao" class="form-control" placeholder="Digite a descrição do produto" rows="4" th:text="${produto.descricao}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="preco">Preço (R$):</label>
+                <input type="number" id="preco" name="preco" th:value="${produto.preco}" required step="0.01" class="form-control" placeholder="0.00">
+            </div>
+
+            <div class="form-group">
+                <label for="estoque">Estoque (Quantidade):</label>
+                <input type="number" id="estoque" name="estoque" th:value="${produto.estoque}" required class="form-control" placeholder="0">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-success" th:text="${produto.id != null ? 'Salvar Alterações' : 'Salvar'}"></button>
+                <a href="/produtos" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+

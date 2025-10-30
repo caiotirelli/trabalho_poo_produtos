@@ -1,0 +1,5 @@
+com/example/produto/controller/ProdutoController.class
+com/example/produto/ProdutoCrudApplication.class
+com/example/produto/entity/Produto.class
+com/example/produto/repository/ProdutoRepository.class
+com/example/produto/service/ProdutoService.class

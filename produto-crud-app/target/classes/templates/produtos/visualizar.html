@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Detalhes do Produto: ' + ${produto.nome}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1 th:text="'Detalhes do Produto: ' + ${produto.nome}"></h1>
+
+        <div class="product-details">
+            <div class="detail-item">
+                <label>ID:</label>
+                <span th:text="${produto.id}"></span>
+            </div>
+
+            <div class="detail-item">
+                <label>Nome:</label>
+                <span th:text="${produto.nome}"></span>
+            </div>
+
+            <div class="detail-item">
+                <label>Descrição:</label>
+                <span th:text="${produto.descricao}"></span>
+            </div>
+
+            <div class="detail-item">
+                <label>Preço:</label>
+                <span th:text="${'R$ ' + #numbers.formatDecimal(produto.preco, 1, 2, 'POINT')}"></span>
+            </div>
+
+            <div class="detail-item">
+                <label>Estoque:</label>
+                <span th:text="${produto.estoque + ' unidades'}"></span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a th:href="@{/produtos/{id}/editar(id=${produto.id})}" class="btn btn-warning">Editar</a>
+            <a href="/produtos" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>
+
